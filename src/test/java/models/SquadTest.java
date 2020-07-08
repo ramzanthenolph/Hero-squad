@@ -42,4 +42,10 @@ public class SquadTest {
         Squad squad = setupNewSquad(setupNewHero());
         assertTrue(squad.getCause() instanceof String);
     }
+    @Test
+    public void addingHeroToExistingSquad() {
+        Squad squad = setupNewSquad(setupNewHero());
+        squad.addMembers(setupHero2());
+        assertEquals(2, squad.getMembers().size());
+    }
 }
