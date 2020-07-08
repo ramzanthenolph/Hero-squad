@@ -50,7 +50,7 @@ _**OpenJDK Runtime Environment (build 10.0.2+13-Ubuntu-1ubuntu0.18.04.4)**_
 + Navigate to the App class file located at build/classes/java/main and run: `java App`.
 
 ## Live Link
-[Visit the live link](https://hero-squad-0047.herokuapp.com)
+[Visit the live link](https://super-squad6013.herokuapp.com/)
 
 ## Known Bugs
 No bugs have been encountered yet.
