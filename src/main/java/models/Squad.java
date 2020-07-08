@@ -85,5 +85,43 @@ public class Squad {
             }
         }
     }
+    public void removeMember(Hero hero) {
+        if (isSquadFull) {
+            isSquadFull = false;
+        }
+        hero.updateSquad("");
+        heroMembers.remove(hero);
 
+        if (heroMembers.isEmpty()) {
+            selfDelete();
+        }
+    }
+    public void clearMemberLists() {
+        heroMembers.clear();
+    }
+
+    public static List<Squad> getAllSquads() {
+        return squadList;
+    }
+
+    public static void clearSquadList() {
+        squadList.clear();
+    }
+
+    public static Squad findSquad(int searchId) {
+        return squadList.get(searchId - 1);
+    }
+
+    private void selfDelete() {
+        Squad.squadList.remove(this);
+    }
+
+    private static void crossCheckHero(int idToCheck) {
+        for (Hero hero : Hero.getHeroList()) {
+            if (hero.getHeroId() == idToCheck) {
+                isRegisteredHero = true;
+                break;
+            }
+        }
+    }
 }

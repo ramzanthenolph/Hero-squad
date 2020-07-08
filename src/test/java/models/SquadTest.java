@@ -75,4 +75,29 @@ public class SquadTest {
         squad.removeMember(hero1);
         assertFalse(squad.getMembers().contains(hero1));
     }
+    @Test
+    public void moveHeroToAnotherSquad() {
+        Hero.clearHeroRegistry();
+        Hero hero1 = setupNewHero();
+        Hero hero2 = setupHero2();
+        Squad squad = setupNewSquad(hero1);
+        Squad squad2 = setupNewSquad(hero2);
+        System.out.println("------------ Before -----------");
+        System.out.println(squad.getMembers());
+        System.out.println(squad2.getMembers());
+
+        assertEquals(1, squad.getMembers().size());
+        squad.changeHeroSquad(hero1, squad2);
+
+        System.out.println("------------ After-----------");
+        System.out.println(squad.getMembers());
+        System.out.println(squad2.getMembers());
+        assertEquals(0, squad.getMembers().size());
+        assertEquals(2, squad2.getMembers().size());
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        Hero.clearHeroRegistry();
+    }
 }

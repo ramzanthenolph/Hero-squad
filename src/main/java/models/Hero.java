@@ -81,7 +81,7 @@ public class Hero {
         }
     }
     public void updateSquad(String newSquad) {
-        this.squadAlliance = newSquad;
+        this.squadAssemble = newSquad;
     }
 
     public void updateName(String newName) {
@@ -102,12 +102,12 @@ public class Hero {
 
     public static void deleteHero(int searchID) {
         Hero heroToDelete = findHero(searchID);
-        if (!heroToDelete.getSquadAlliance().equals("")) {
+        if (!heroToDelete.getSquadAssemble().equals("")) {
             // IF this hero is in a squad, remove him from squad first
             Squad currentSquad = null;
-            String currentSquadName = heroToDelete.getSquadAlliance();
+            String currentSquadName = heroToDelete.getSquadAssemble();
             for (Squad squad : Squad.getAllSquads()) {
-                if (squad.getName().equalsIgnoreCase(currentSquadName)) {
+                if (squad.getSquadName().equalsIgnoreCase(currentSquadName)) {
                     currentSquad = squad;
                     break;
                 }
