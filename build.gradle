@@ -1,9 +1,13 @@
 plugins {
-    id 'java'
+    id 'java-library'
+    id 'application'
+    
 }
 
 group 'hero-squad'
 version '1.0-SNAPSHOT'
+
+mainClassName = 'App'
 
 sourceCompatibility = 1.8
 
