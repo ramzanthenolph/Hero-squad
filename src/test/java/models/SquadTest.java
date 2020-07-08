@@ -27,8 +27,19 @@ public class SquadTest {
         return new Squad("Avengers", "Just Exist again", hero);
     }
     @Test
-    public void squadInstanciatedCorrectly() {
+    public void squadInstantiatedCorrectly() {
         Squad squad = setupNewSquad(setupNewHero());
         assertTrue(squad instanceof Squad);
+    }
+    @Test
+    public void getSquadName() {
+        Squad squad = setupNewSquad(setupNewHero());
+        assertTrue(squad.getSquadName() instanceof String);
+    }
+
+    @Test
+    public void getSquadCause() {
+        Squad squad = setupNewSquad(setupNewHero());
+        assertTrue(squad.getCause() instanceof String);
     }
 }
