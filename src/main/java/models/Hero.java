@@ -67,4 +67,18 @@ public class Hero {
     public static Hero findHero(int searchID) {
         return heroList.get(searchID - 1);
     }
+    private static void findDuplicateHero(Hero newInsertion) {
+        for (Hero hero : heroList) {
+            if (newInsertion.name.equalsIgnoreCase(hero.name) &&
+                    newInsertion.power.equalsIgnoreCase(hero.power) &&
+                    newInsertion.weakness.equalsIgnoreCase(hero.weakness)) {
+                duplicate = true;
+                break;
+            } else if (newInsertion.name.equalsIgnoreCase(hero.name)) {
+                duplicate = true;
+                break;
+            }
+        }
+    }
+    
 }

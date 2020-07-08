@@ -45,4 +45,11 @@ public class HeroTest {
         Hero newHero = setupNewHero();
         assertTrue(newHero.getWeakness() instanceof String);
     }
+    @Test
+    public void getHeroList_storeTwoHeroes_true() {
+        Hero newHero = setupNewHero();
+        Hero anotherNewHero = setupHero2();
+        assertTrue(Hero.getHeroList().contains(newHero));
+        assertTrue(Hero.getHeroList().contains(anotherNewHero));
+    }
 }
