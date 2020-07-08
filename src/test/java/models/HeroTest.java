@@ -28,4 +28,21 @@ public class HeroTest {
         Hero newHero = setupNewHero();
         assertTrue(newHero.getName() instanceof String);
     }
+    @Test
+    public void getHeroAge_int() {
+        Hero newHero = setupNewHero();
+        assertEquals(45, newHero.getAge());
+    }
+
+    @Test
+    public void getHeroPower_true() {
+        Hero newHero = setupNewHero();
+        assertTrue(newHero.getPower() instanceof String);
+    }
+
+    @Test
+    public void getHeroWeakness_true() {
+        Hero newHero = setupNewHero();
+        assertTrue(newHero.getWeakness() instanceof String);
+    }
 }
