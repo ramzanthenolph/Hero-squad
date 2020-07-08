@@ -66,5 +66,13 @@ public class SquadTest {
         assertEquals(3, squad.getMembers().size());
         assertTrue(squad.getSquadFull());
     }
-    
+    @Test
+    public void removeHeroMember() {
+        Hero hero1 = setupNewHero();
+        Hero hero2 = setupHero2();
+        Squad squad = setupNewSquad(hero1);
+        squad.addMembers(hero2);
+        squad.removeMember(hero1);
+        assertFalse(squad.getMembers().contains(hero1));
+    }
 }
