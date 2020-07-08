@@ -48,4 +48,23 @@ public class SquadTest {
         squad.addMembers(setupHero2());
         assertEquals(2, squad.getMembers().size());
     }
+    @Test
+    public void addHero_NotExeedLimitOf1_int() {
+        Squad squad = setupNewSquad(setupNewHero());
+        squad.addMembers(setupHero2());
+        assertEquals(2, squad.getMembers().size());
+    }
+
+    @Test
+    public void addHero_NotExceedLimitOf3_int() {
+        Squad squad = setupNewSquad(setupNewHero());
+        squad.addMembers(setupHero2());
+        squad.addMembers(new Hero("1", 1, "1", "1"));
+        squad.addMembers(new Hero("2", 1, "1", "1"));
+        squad.addMembers(new Hero("3", 1, "1", "1"));
+        squad.addMembers(new Hero("4", 1, "1", "1"));
+        assertEquals(3, squad.getMembers().size());
+        assertTrue(squad.getSquadFull());
+    }
+    
 }
