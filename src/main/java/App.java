@@ -37,6 +37,7 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             return new ModelAndView(model, "squad-form.hbs");
         }, new HandlebarsTemplateEngine());
+
         get("/hero", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             String name = request.queryParams("name");
@@ -47,7 +48,33 @@ public class App {
             model.put("age", age);
             model.put("power", power);
             model.put("weakness", weakness);
+            Hero newHero = new Hero(name, age, power, weakness);
             return new ModelAndView(model, "hero.hbs");
         }, new HandlebarsTemplateEngine());
+
+        get("/squad", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Hero> squadlessHeroes = new ArrayList<>();
+            for (Hero hero : Hero.getHeroList()) {
+                if (hero.getSquadAssemble().equals("")) {
+                    squadlessHeroes.add(hero);
+                }
+            }
+            model.put("squadlessHeroes", squadlessHeroes);
+            return new ModelAndView(model, "squad.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/squad", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String squadName = request.queryParams("squadName");
+            String cause = request.queryParams("cause");
+            String weakness = request.queryParams("weakness");
+            String name = request.queryParams("name");
+            model.put("squadName", squadName);
+            model.put("cause", cause);
+            model.put("name", name);
+            return new ModelAndView(model, "squad.hbs");
+        }, new HandlebarsTemplateEngine());
+
     }
 }
