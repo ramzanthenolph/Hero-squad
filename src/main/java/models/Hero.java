@@ -80,5 +80,47 @@ public class Hero {
             }
         }
     }
+    public void updateSquad(String newSquad) {
+        this.squadAlliance = newSquad;
+    }
+
+    public void updateName(String newName) {
+        this.name = newName;
+    }
+
+    public void updateAge(int newAge) {
+        this.age = newAge;
+    }
+
+    public void updatePower(String newPower) {
+        this.power = newPower;
+    }
+
+    public void updateWeakness(String newWeakness) {
+        this.weakness = newWeakness;
+    }
+
+    public static void deleteHero(int searchID) {
+        Hero heroToDelete = findHero(searchID);
+        if (!heroToDelete.getSquadAlliance().equals("")) {
+            // IF this hero is in a squad, remove him from squad first
+            Squad currentSquad = null;
+            String currentSquadName = heroToDelete.getSquadAlliance();
+            for (Squad squad : Squad.getAllSquads()) {
+                if (squad.getName().equalsIgnoreCase(currentSquadName)) {
+                    currentSquad = squad;
+                    break;
+                }
+            }
+            assert currentSquad != null;
+            currentSquad.removeMember(heroToDelete);
+        }
+        heroList.remove(searchID - 1);
+    }
+
+    public static void clearHeroRegistry(){
+        heroList.clear();
+    }
+
 
 }
