@@ -29,5 +29,42 @@ public class Hero {
         }
     }
 
-    
+    public String getName() {
+        return name;
+    }
+    public String getPower(){
+        return power;
+    }
+    public String getWeakness(){
+        return weakness;
+    }
+    public int getAge(){
+        return age;
+    }
+    public String getSquadAssemble() {
+        return squadAssemble;
+    }
+
+    public int getHeroId() {
+        return heroId;
+    }
+
+    public void setPower(String power) {
+        this.power = power;
+    }
+
+    public void setWeakness(String weakness) {
+        this.weakness = weakness;
+    }
+
+    public void setSquadAlliance(String squadAlliance) {
+        this.squadAssemble = squadAssemble;
+    }
+
+    public static List<Hero> getHeroList() {
+        return heroList;
+    }
+    public static Hero findHero(int searchID) {
+        return heroList.get(searchID - 1);
+    }
 }
