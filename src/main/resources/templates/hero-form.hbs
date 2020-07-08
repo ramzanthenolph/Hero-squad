@@ -6,7 +6,7 @@
 {{#partial "content"}}
 
     <h1>Create your hero here</h1>
-    <form action='/greeting_card'>
+    <form action='/'>
         <div class="form-group">
             <label for="name">Enter hero name</label>
             <input id="name" name="name" class="form-control" type="text">
@@ -23,9 +23,9 @@
             <label for="power">What is your hero's weakness</label>
             <input id="weakness" name="weakness" class="form-control" type="text">
         </div>
-        <button type="submit" class="btn">Go!</button>
+        <button type="submit" class="btn">Create hero</button>
     </form>
-    <!--form.hbs.-->
+    <!--hero-form.hbs.-->
 {{/partial}}
 
 {{> layout.hbs}}
